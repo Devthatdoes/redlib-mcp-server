@@ -107,7 +107,7 @@ npm start
 ## 🐳 Docker Compose
 
 <details>
-<summary>Click to expand Docker Compose setup (production deployment)</summary>
+<summary>Click to expand Docker Compose setup</summary>
 
 Create `docker-compose.yml`:
 
