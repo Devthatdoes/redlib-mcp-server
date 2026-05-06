@@ -112,8 +112,6 @@ npm start
 Create `docker-compose.yml`:
 
 ```yaml
-version: '3.8'
-
 services:
   redlib-mcp:
     image: alfafadock/mcp-redlib:latest
