@@ -104,6 +104,69 @@ npm start
 
 ---
 
+## 🐳 Docker Compose
+
+Create `docker-compose.yml`:
+
+```yaml
+# Redlib MCP Server - Production Setup
+#
+# USAGE:
+#   docker compose up -d    # Start the service
+#   docker compose logs -f  # View logs
+#   docker compose down      # Stop the service
+#
+# FOR REVERSE PROXY (nginx, Traefik, Caddy):
+#   This MCP server uses STDIO transport (not HTTP), so it doesn't need
+#   traditional reverse proxy setup. The server communicates via
+#   standard input/output when launched by an MCP client (Claude, Cursor, etc.)
+#
+# If you want to expose this as an HTTP endpoint (for remote clients),
+# you would need an MCP-to-HTTP proxy like @modelcontextprotocol/server-http-proxy
+
+services:
+  redlib-mcp:
+    image: alfafadock/mcp-redlib:latest
+    container_name: redlib-mcp
+    
+    # NETWORK MODE:
+    #   "host" = Uses host network (recommended for local MCP clients)
+    #   Remove this line to use Docker's default bridge network
+    network_mode: "host"
+    
+    # ENVIRONMENT VARIABLES:
+    environment:
+      # URL of your Redlib instance (change if using custom port)
+      - REDLIB_URL=http://localhost:8080
+      
+      # Example: Custom Redlib port (e.g., 8085)
+      # - REDLIB_URL=http://localhost:8085
+      
+      # Example: Remote Redlib instance
+      # - REDLIB_URL=http://192.168.1.100:8080
+    
+    # RESTART POLICY:
+    #   unless-stopped = Restart unless manually stopped
+    #   always         = Always restart (even after manual stop + system reboot)
+    restart: unless-stopped
+    
+    # RUNTIME SECURITY (Optional):
+    # Uncomment below for hardened security:
+    # cap_drop:
+    #   - ALL
+    # security_opt:
+    #   - no-new-privileges:true
+    # user: "1000:1000"  # Run as non-root user (requires image support)
+```
+
+Run:
+
+```bash
+docker compose up -d
+```
+
+---
+
 ## 🔧 Configuration
 
 ### Environment Variables
@@ -392,30 +455,7 @@ Create `.kilocode/mcp.json` or `kilo.jsonc` in your project root:
 
 ---
 
-## 🐳 Docker Compose
-
-Create `docker-compose.yml`:
-
-```yaml
-services:
-  redlib-mcp:
-    image: alfafadock/mcp-redlib:latest
-    container_name: redlib-mcp
-    network_mode: "host"
-    environment:
-      - REDLIB_URL=http://localhost:8080
-    restart: unless-stopped
-```
-
-Run:
-```bash
-docker compose up -d
-```
-
----
-
 ## 🔒 Security: Default vs Hardened
-
 | Feature | Default (`latest`) | Hardened (`hardened`) |
 |---------|-------------------|---------------------|
 | **User** | root | Non-root (mcpuser) |
