@@ -89,7 +89,7 @@ docker run -i --rm \
 
 ```bash
 # Clone and setup
-git clone https://github.com/yourusername/redlib-mcp-server.git
+git clone https://github.com/Devthatdoes/redlib-mcp-server.git
 cd redlib-mcp-server
 
 # Install dependencies
