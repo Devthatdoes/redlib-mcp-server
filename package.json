@@ -17,10 +17,19 @@
     "redlib",
     "reddit",
     "ai",
-    "llm"
+    "llm",
+    "modelcontextprotocol"
   ],
-  "author": "",
+  "author": "Devthatdoes",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Devthatdoes/redlib-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Devthatdoes/redlib-mcp-server/issues"
+  },
+  "homepage": "https://github.com/Devthatdoes/redlib-mcp-server#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
     "cheerio": "^1.2.0",

@@ -7,6 +7,32 @@ A **Model Context Protocol (MCP) server** that enables AI agents to interact wit
 
 ---
 
+## 📑 Table of Contents
+
+- [Features](#-features)
+- [Prerequisites](#-prerequisites)
+- [Quick Start](#-quick-start)
+- [Configuration](#-configuration)
+- [Available Tools](#️-available-tools)
+- [Integration with AI Clients](#-integration-with-ai-clients)
+  - [Claude Desktop](#claude-desktop)
+  - [Cursor](#cursor)
+  - [VS Code / GitHub Copilot](#vs-code--github-copilot)
+  - [OpenAI Codex](#openai-codex)
+  - [ForgeCode](#forgecode)
+  - [KiloCode](#kilocode)
+- [Docker Compose](#-docker-compose)
+- [Security: Default vs Hardened](#-security-default-vs-hardened)
+- [Development](#-development)
+- [Example Usage with AI](#-example-usage-with-ai)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Acknowledgments](#-acknowledgments)
+- [Links](#-links)
+
+---
+
+
 ## ✨ Features
 
 - 🔒 **Privacy-First** - Uses your self-hosted Redlib, no tracking or API keys
@@ -290,7 +316,24 @@ args = ["run", "-i", "--rm", "--network", "host", "-e", "REDLIB_URL=http://local
 
 ### ForgeCode
 
-#### Option A: Project Configuration
+ForgeCode supports MCP servers via the **`forge mcp`** command for easy import.
+
+#### Option A: Quick Import (Recommended)
+
+Use the built-in MCP import functionality:
+
+```bash
+# Import the Redlib MCP server
+forge mcp import alfafadock/mcp-redlib:latest
+
+# List imported servers
+forge mcp list
+
+# Reload to apply changes
+forge mcp reload
+```
+
+#### Option B: Project Configuration
 Create `.mcp.json` in your project root:
 
 ```json
@@ -304,10 +347,10 @@ Create `.mcp.json` in your project root:
 }
 ```
 
-#### Option B: Global Configuration
+#### Option C: Global Configuration
 Edit ForgeCode's config directory (check extension settings for the exact path).
 
-**After updating:** Reload the ForgeCode extension. The MCP tools should appear in the AI assistant interface.
+**After updating:** Reload the ForgeCode extension using `forge mcp reload`. The MCP tools should appear in the AI assistant interface.
 
 *Reference: [ForgeCode Documentation](https://forgecode.dev/docs/mcp-integration/)*
 
@@ -485,7 +528,7 @@ MIT License - feel free to use this project however you want!
 ## 🔗 Links
 
 - **Docker Hub**: [alfafadock/mcp-redlib](https://hub.docker.com/r/alfafadock/mcp-redlib)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/redlib-mcp-server/issues)
+- **Issues**: [GitHub Issues](https://github.com/Devthatdoes/redlib-mcp-server/issues)
 - **Redlib**: [github.com/redlib-org/redlib](https://github.com/redlib-org/redlib)
 
 ---
