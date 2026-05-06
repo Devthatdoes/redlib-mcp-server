@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  redlib-mcp:
+    image: alfafadock/mcp-redlib:latest
+    container_name: redlib-mcp
+    network_mode: "host"
+    environment:
+      - REDLIB_URL=http://localhost:8080
+    restart: unless-stopped
