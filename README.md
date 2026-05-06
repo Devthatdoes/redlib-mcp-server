@@ -106,6 +106,9 @@ npm start
 
 ## 🐳 Docker Compose
 
+<details>
+<summary>Click to expand Docker Compose setup (production deployment)</summary>
+
 Create `docker-compose.yml`:
 
 ```yaml
@@ -158,13 +161,9 @@ services:
     #   - no-new-privileges:true
     # user: "1000:1000"  # Run as non-root user (requires image support)
 ```
+</details>
 
-Run:
-
-```bash
-docker compose up -d
-```
-
+---
 ---
 
 ## 🔧 Configuration
