@@ -10,6 +10,7 @@ A **Model Context Protocol (MCP) server** that enables AI agents to interact wit
 ## 📑 Table of Contents
 
 - [Features](#-features)
+- [Current Implementation](#-current-implementation)
 - [Prerequisites](#-prerequisites)
 - [Quick Start](#-quick-start)
 - [Configuration](#-configuration)
@@ -32,7 +33,6 @@ A **Model Context Protocol (MCP) server** that enables AI agents to interact wit
 
 ---
 
-
 ## ✨ Features
 
 - 🔒 **Privacy-First** - Uses your self-hosted Redlib, no tracking or API keys
@@ -40,6 +40,25 @@ A **Model Context Protocol (MCP) server** that enables AI agents to interact wit
 - 🐳 **Docker Ready** - Both simple and hardened Docker images available
 - 🧩 **Easy Setup** - Works with Claude Desktop, Cursor, VS Code, Codex, ForgeCode, KiloCode and any MCP-compatible client
 - 📊 **Structured Output** - Returns clean JSON instead of raw HTML
+
+---
+
+## ⚠️ Current Implementation: Stdio Transport
+
+**Important**: This server currently uses **stdio transport** (stdin/stdout communication) for local development. It runs as a child process and communicates through standard input/output.
+
+### What This Means:
+- **No HTTP endpoint** - The server does not expose any HTTP ports
+- **Local-only** - Designed for local development and testing scenarios
+- **Child process** - MCP clients spawn this server as a subprocess
+- **No network access** - All communication happens locally via stdin/stdout
+
+### Future Plans:
+HTTP transport functionality is planned for future releases to enable:
+- Remote access over HTTP
+- Multiple concurrent client connections
+- Production deployment scenarios
+- Network-based health checks
 
 ---
 
@@ -124,7 +143,6 @@ services:
 ```
 </details>
 
----
 ---
 
 ## 🔧 Configuration
@@ -298,7 +316,7 @@ Create `.vscode/mcp.json` in your project:
 ```
 
 #### Option B: User Configuration (Global)
-Use Command Palette (Cmd/Ctrl+Shift+P) → "MCP: Open User Configuration"
+Use Command Palette (Cmd/Ctrl+Shift+P) → "MCP: Open User Configuration":
 
 ```json
 {
@@ -444,7 +462,7 @@ docker run -i --rm \
 ```
 redlib-mcp-server/
 ├── src/
-│   └── index.ts          # Main server code
+│   └── index.ts          # Main server code (stdio transport)
 ├── dist/                  # Compiled JavaScript (gitignored)
 ├── Dockerfile             # Default Docker image
 ├── Dockerfile.hardened    # Hardened Docker image
