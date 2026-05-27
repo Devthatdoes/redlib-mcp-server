@@ -1,9 +1,25 @@
 services:
+  # Default: Stdio transport (comment out USE_HTTP to enable)
   redlib-mcp:
     image: alfafadock/mcp-redlib:latest
     container_name: redlib-mcp
     network_mode: "host"  # Uses host network for MCP client communication
     environment:
       - REDLIB_URL=http://localhost:8080  # Change if Redlib is on a different port
+      # USE_HTTP=false  # Uncomment to enable HTTP transport instead of stdio
     restart: unless-stopped
     # For hardened image, change image to: alfafadock/mcp-redlib:hardened
+
+  # Optional: HTTP transport (comment out redlib-mcp above and uncomment this)
+  # redlib-mcp-http:
+  #   image: alfafadock/mcp-redlib:latest
+  #   container_name: redlib-mcp-http
+  #   network_mode: "host"  # Uses host network for MCP client communication
+  #   ports:
+  #     - "3000:3000"  # HTTP MCP endpoint
+  #   environment:
+  #     - REDLIB_URL=http://localhost:8080  # Change if Redlib is on a different port
+  #     - USE_HTTP=true  # Enable HTTP transport
+  #     - PORT=3000  # HTTP port
+  #   restart: unless-stopped
+  #   # For hardened image, change image to: alfafadock/mcp-redlib:hardened
