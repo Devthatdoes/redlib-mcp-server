@@ -6,7 +6,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import fetch from "node-fetch";
 
-// Helper: Parse Redlib search/hot results HTML into structured JSON
+// Helper: Parses Redlib search/hot results HTML into structured JSON
 function parsePostList(html: string) {
   const $ = cheerio.load(html);
   const results: Array<{
