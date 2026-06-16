@@ -1,4 +1,4 @@
-# 🔴 Redlib MCP Server
+#  Redlib MCP Server
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/alfafadock/mcp-redlib?label=docker%20pulls)](https://hub.docker.com/r/alfafadock/mcp-redlib)
 [![Docker Image Size](https://img.shields.io/docker/image-size/alfafadock/mcp-redlib/latest)](https://hub.docker.com/r/alfafadock/mcp-redlib)
@@ -7,7 +7,15 @@ A **Model Context Protocol (MCP) server** that enables AI agents to interact wit
 
 ---
 
-## 📑 Table of Contents
+
+
+https://github.com/user-attachments/assets/b3500482-368b-4adf-9c87-91efd520c932
+
+
+
+
+
+##  Table of Contents
 
 - [Features](#-features)
 - [Current Implementation](#-current-implementation)
@@ -33,17 +41,17 @@ A **Model Context Protocol (MCP) server** that enables AI agents to interact wit
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🔒 **Privacy-First** - Uses your self-hosted Redlib, no tracking or API keys
-- 🛠️ **3 Powerful Tools** - Search posts, get hot posts, fetch full post details with comments
-- 🐳 **Docker Ready** - Both simple and hardened Docker images available
-- 🧩 **Easy Setup** - Works with Claude Desktop, Cursor, VS Code, Codex, ForgeCode, KiloCode and any MCP-compatible client
-- 📊 **Structured Output** - Returns clean JSON instead of raw HTML
+-  **Privacy-First** - Uses your self-hosted Redlib, no tracking or API keys
+-  **3 Powerful Tools** - Search posts, get hot posts, fetch full post details with comments
+-  **Docker Ready** - Both simple and hardened Docker images available
+-  **Easy Setup** - Works with Claude Desktop, Cursor, VS Code, Codex, ForgeCode, KiloCode and any MCP-compatible client
+-  **Structured Output** - Returns clean JSON instead of raw HTML
 
 ---
 
-## ⚠️ Current Implementation: Stdio Transport
+##  Current Implementation: Stdio Transport
 
 **Important**: This server currently uses **stdio transport** (stdin/stdout communication) for local development. It runs as a child process and communicates through standard input/output.
 
@@ -62,7 +70,7 @@ HTTP transport functionality is planned for future releases to enable:
 
 ---
 
-## 📋 Prerequisites
+##  Prerequisites
 
 Before using this MCP server, you need:
 
@@ -80,7 +88,7 @@ Before using this MCP server, you need:
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Option 1: Docker (Recommended)
 
@@ -123,7 +131,7 @@ npm start
 
 ---
 
-## 🐳 Docker Compose
+##  Docker Compose
 
 <details>
 <summary>Click to expand Docker Compose setup</summary>
@@ -145,7 +153,7 @@ services:
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -174,7 +182,7 @@ cp .env.example .env
 
 ---
 
-## 🛠️ Available Tools
+##  Available Tools
 
 ### 1. `search_reddit`
 Search Reddit posts using your private Redlib instance.
@@ -433,7 +441,7 @@ Create `.kilocode/mcp.json` or `kilo.jsonc` in your project root:
 
 ---
 
-## 🔒 Security: Default vs Hardened
+##  Security: Default vs Hardened
 | Feature | Default (`latest`) | Hardened (`hardened`) |
 |---------|-------------------|---------------------|
 | **User** | root | Non-root (mcpuser) |
@@ -455,7 +463,7 @@ docker run -i --rm \
 
 ---
 
-## 💻 Development
+##  Development
 
 ### Project Structure
 
@@ -497,7 +505,7 @@ docker build -f Dockerfile.hardened -t redlib-mcp-server:hardened .
 
 ---
 
-## 📝 Example Usage with AI
+##  Example Usage with AI
 
 Once connected to your AI client (e.g., Claude), you can:
 
@@ -519,7 +527,7 @@ AI provides detailed analysis
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please:
 
@@ -529,13 +537,13 @@ Contributions welcome! Please:
 
 ---
 
-## 📄 License
+##  License
 
 MIT License - feel free to use this project however you want!
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [Redlib](https://github.com/redlib-org/redlib) - The private Reddit front-end this server interfaces with
 - [Model Context Protocol](https://modelcontextprotocol.io/) - The protocol that makes this integration possible
@@ -543,7 +551,7 @@ MIT License - feel free to use this project however you want!
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **Docker Hub**: [alfafadock/mcp-redlib](https://hub.docker.com/r/alfafadock/mcp-redlib)
 - **Issues**: [GitHub Issues](https://github.com/Devthatdoes/redlib-mcp-server/issues)
