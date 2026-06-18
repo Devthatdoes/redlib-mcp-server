@@ -9,7 +9,11 @@ A **Model Context Protocol (MCP) server** that enables AI agents to interact wit
 
 
 
-https://github.com/user-attachments/assets/b3500482-368b-4adf-9c87-91efd520c932
+
+
+https://github.com/user-attachments/assets/66eec084-e911-4eed-a51f-be303e86f1a7
+
+
 
 
 
